@@ -1,0 +1,18 @@
+{{ block "index" . }}
+<html>
+    <head>
+        <title>Templated Application</title>
+    </head>
+    <body>
+      <div class="flex flex-col text-center">
+        {{ template "header" .}}
+        <h1 class="text-3xl mb-5" hx-trigger="click" hx-target="this" hx-get="/name">Hello, {{.Name}}! </h1>
+        <button class="bg-blue-600 rounded m-1 mx-auto py-1 px-3" hx-target="this" hx-swap="outerHTML" hx-get="/counter">Click me!</button>
+      </div>
+    </body>
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/sse.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</html>
+{{ end }}
+

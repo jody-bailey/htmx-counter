@@ -1,0 +1,13 @@
+{{ block "counter" . }}
+  <p>I heard you need a counter</p>
+
+  <h1 class="text-5xl my-3 font-bold" hx-ext="sse" sse-connect="/sse?stream=counter" sse-swap="counter">{{.Count}}</h1>
+
+  <div class="flex flex-row mx-auto">
+    <button class="bg-red-500 m-1 px-3 py-1 rounded" hx-get="/decrement" hx-swap="none">-</button>
+    <button class="bg-green-500 m-1 px-3 py-1 rounded" hx-get="/increment" hx-swap="none">+</button>
+    <button class="bg-gray-300 m-1 px-3 py-1 rounded" hx-get="/reset" hx-swap="none">Reset</button>
+  </div>
+  {{ template "timer" . }}
+{{ end }}
+
